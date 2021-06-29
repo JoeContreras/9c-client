@@ -25,7 +25,7 @@ const Profile = () => {
   const users = useSelector((state) => state.users);
   const { user, isAdmin } = auth;
   const [data, setData] = useState(initialState);
-  const { name, email, password, cf_password, err, success } = data;
+  const { name,  password, cf_password, err, success } = data;
   const [avatar, setAvatar] = useState(false);
   const [loading, setLoading] = useState(false);
   const [callback, setCallback] = useState(false);

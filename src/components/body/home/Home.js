@@ -11,9 +11,7 @@ function Home() {
         molestiae molestias nobis nostrum odio possimus quia quidem, sequi
         temporibus unde, voluptates.
       </p>
-      <a href="#" target="_blank" rel="noopener noreferrer">
-        My Youtube
-      </a>
+     
 
       <h3>Consultoria</h3>
     </div>

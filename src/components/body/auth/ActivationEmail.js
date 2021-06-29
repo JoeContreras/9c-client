@@ -25,7 +25,7 @@ const ActivationEmail = () => {
       };
       activationEmail();
     }
-  }, [activation_token]);
+  }, [activation_token, err.response.data.msg]);
   return (
     <div className="active_page">
       {err && showErrMsg(err)}

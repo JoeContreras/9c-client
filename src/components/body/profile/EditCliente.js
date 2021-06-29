@@ -46,7 +46,7 @@ const EditCliente = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.patch(
+       await axios.patch(
         `/admin/clientes/${editCliente._id}`,
         {
           nombre: nombre ? nombre : editCliente.nombre,
