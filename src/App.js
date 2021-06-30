@@ -21,7 +21,8 @@ function App() {
       const getToken = async () => {
         const res = await axios.post(
           "https://server-9c.herokuapp.com/user/refresh_token",
-          null
+          null,
+          { withCredentials: true }
         );
         dispatch({ type: "GET_TOKEN", payload: res.data.access_token });
       };
