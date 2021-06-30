@@ -46,8 +46,8 @@ const EditCliente = () => {
 
   const handleUpdate = async () => {
     try {
-       await axios.patch(
-        `/admin/clientes/${editCliente._id}`,
+      await axios.patch(
+        `https://server-9c.herokuapp.com/admin/clientes/${editCliente._id}`,
         {
           nombre: nombre ? nombre : editCliente.nombre,
           nombreEmpresa: nombreEmpresa

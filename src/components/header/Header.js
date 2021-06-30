@@ -9,7 +9,7 @@ const Header = () => {
   const userLink = () => {
     const handleLogout = async () => {
       try {
-        await axios.get("/user/logout");
+        await axios.get("https://server-9c.herokuapp.com/user/logout");
         localStorage.removeItem("firstLogin");
         window.location.href = "/";
       } catch (e) {

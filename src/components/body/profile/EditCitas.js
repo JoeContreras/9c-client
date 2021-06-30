@@ -47,7 +47,7 @@ const EditCita = () => {
   const handleUpdate = async () => {
     try {
       await axios.patch(
-        `/admin/citas/${editCita._id}`,
+        `https://server-9c.herokuapp.com/admin/citas/${editCita._id}`,
         {
           nombre: nombre ? nombre : editCita.nombre,
           fecha: fecha ? fecha : editCita.fecha,

@@ -60,7 +60,7 @@ const Cliente = () => {
 
     try {
       const res = await axios.post(
-        "/admin/clientes",
+        "https://server-9c.herokuapp.com/admin/clientes",
         {
           nombre: nombre,
           nombreEmpresa: nombreEmpresa,
@@ -84,9 +84,12 @@ const Cliente = () => {
     try {
       if (window.confirm("Seguro que deseas borrar este cliente?")) {
         setLoading(true);
-        await axios.delete(`/admin/clientes/${id}`, {
-          headers: { Authorization: token },
-        });
+        await axios.delete(
+          `https://server-9c.herokuapp.com/admin/clientes/${id}`,
+          {
+            headers: { Authorization: token },
+          }
+        );
         setLoading(false);
         setCallback(!callback);
       }

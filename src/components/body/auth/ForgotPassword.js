@@ -28,7 +28,10 @@ const ForgotPassword = () => {
       });
     }
     try {
-      const res = await axios.post("/user/forgot", { email });
+      const res = await axios.post(
+        "https://server-9c.herokuapp.com/user/forgot",
+        { email }
+      );
       return setData({ ...data, err: "", success: res.data.msg });
     } catch (e) {
       e.response.data.msg &&

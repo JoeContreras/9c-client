@@ -25,7 +25,7 @@ const Profile = () => {
   const users = useSelector((state) => state.users);
   const { user, isAdmin } = auth;
   const [data, setData] = useState(initialState);
-  const { name,  password, cf_password, err, success } = data;
+  const { name, password, cf_password, err, success } = data;
   const [avatar, setAvatar] = useState(false);
   const [loading, setLoading] = useState(false);
   const [callback, setCallback] = useState(false);
@@ -70,12 +70,16 @@ const Profile = () => {
       formData.append("file", file);
       setLoading(true);
 
-      const res = await axios.post("/api/upload_avatar", formData, {
-        headers: {
-          "content-type": "multipart/form-data",
-          Authorization: token,
-        },
-      });
+      const res = await axios.post(
+        "https://server-9c.herokuapp.com/api/upload_avatar",
+        formData,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+            Authorization: token,
+          },
+        }
+      );
       setLoading(false);
       setAvatar(res.data.url);
       // setData({ ...data, err: "", success: "Avatar updated" });
@@ -86,7 +90,7 @@ const Profile = () => {
   const updateInfo = async () => {
     try {
       const res = await axios.patch(
-        "/user/update",
+        "https://server-9c.herokuapp.com/user/update",
         {
           name: name ? name : user.name,
           avatar: avatar ? avatar : user.avatar,
@@ -120,7 +124,7 @@ const Profile = () => {
     }
     try {
       const res = await axios.post(
-        "/user/reset",
+        "https://server-9c.herokuapp.com/user/reset",
         { password },
         {
           headers: {
@@ -147,9 +151,12 @@ const Profile = () => {
     try {
       if (window.confirm("Are you sure you want to delete this account?")) {
         setLoading(true);
-        await axios.delete(`/user/delete/${id}`, {
-          headers: { Authorization: token },
-        });
+        await axios.delete(
+          `https://server-9c.herokuapp.com/user/delete/${id}`,
+          {
+            headers: { Authorization: token },
+          }
+        );
         setLoading(false);
         setCallback(!callback);
       }

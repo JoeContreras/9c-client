@@ -26,7 +26,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/user/login", { email, password });
+      const res = await axios.post(
+        "https://server-9c.herokuapp.com/user/login",
+        { email, password }
+      );
       setUser({ ...user, err: "", success: res.data.msg });
       localStorage.setItem("firstLogin", true);
       dispatch(dispatchLogin());
@@ -47,9 +50,12 @@ const Login = () => {
 
   const responseGoogle = async (response) => {
     try {
-      const res = await axios.post("/user/google_login", {
-        tokenId: response.tokenId,
-      });
+      const res = await axios.post(
+        "https://server-9c.herokuapp.com/user/google_login",
+        {
+          tokenId: response.tokenId,
+        }
+      );
       setUser({ ...user, err: "", success: res.data.msg });
       localStorage.setItem("firstLogin", true);
       dispatch(dispatchLogin());
@@ -67,10 +73,13 @@ const Login = () => {
   const responseFacebook = async (response) => {
     try {
       const { accessToken, userID } = response;
-      const res = await axios.post("/user/facebook_login", {
-        accessToken,
-        userID,
-      });
+      const res = await axios.post(
+        "https://server-9c.herokuapp.com/user/facebook_login",
+        {
+          accessToken,
+          userID,
+        }
+      );
       setUser({ ...user, err: "", success: res.data.msg });
       localStorage.setItem("firstLogin", true);
       dispatch(dispatchLogin());

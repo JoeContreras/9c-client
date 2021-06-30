@@ -40,7 +40,7 @@ const ResetPassword = () => {
     }
     try {
       const res = await axios.post(
-        "/user/reset",
+        "https://server-9c.herokuapp.com/user/reset",
         { password },
         {
           headers: { Authorization: token },

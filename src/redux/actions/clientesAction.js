@@ -2,9 +2,12 @@ import ACTIONS from "./index";
 import axios from "axios";
 
 export const fetchAllClientes = async (token) => {
-  const res = await axios.get("admin/clientes", {
-    headers: { Authorization: token },
-  });
+  const res = await axios.get(
+    "https://server-9c.herokuapp.com/admin/clientes",
+    {
+      headers: { Authorization: token },
+    }
+  );
   return res;
 };
 
