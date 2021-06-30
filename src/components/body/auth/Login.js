@@ -54,7 +54,8 @@ const Login = () => {
         "https://server-9c.herokuapp.com/user/google_login",
         {
           tokenId: response.tokenId,
-        }
+        },
+        { withCredentials: true }
       );
       setUser({ ...user, err: "", success: res.data.msg });
       localStorage.setItem("firstLogin", true);
@@ -78,7 +79,8 @@ const Login = () => {
         {
           accessToken,
           userID,
-        }
+        },
+        { withCredentials: true }
       );
       setUser({ ...user, err: "", success: res.data.msg });
       localStorage.setItem("firstLogin", true);
